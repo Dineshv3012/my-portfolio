@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans overflow-x-hidden;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/60 dark:bg-black/40 backdrop-blur-md border border-white/20 dark:border-white/10 shadow-lg p-6 rounded-2xl;
+  }
+  
+  .glass-nav {
+    @apply fixed top-6 inset-x-0 mx-auto w-[92%] max-w-6xl z-50 py-4 rounded-[2rem] bg-white/40 dark:bg-black/40 backdrop-blur-xl border border-white/20 dark:border-white/10 shadow-glass;
+  }
+}
+
+/* Custom smooth transitions for theme switcher */
+.theme-switch-transition {
+  transition: background-color 0.5s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Custom animations for glowing background shapes */
+@keyframes morph {
+  0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+  100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+}
+
+.animate-morph {
+  animation: morph 8s ease-in-out infinite alternate;
+}
